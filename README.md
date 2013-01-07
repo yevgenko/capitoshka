@@ -1,4 +1,4 @@
-# Capitoshka
+# Capitoshka [![Build Status](https://secure.travis-ci.org/yevgenko/capitoshka.png?branch=master)](https://travis-ci.org/yevgenko/capitoshka)
 
 Simple web API in front of capistrano that translates requests into cap commands.
 
