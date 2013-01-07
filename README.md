@@ -10,7 +10,7 @@ Simple web API in front of capistrano that translates requests into cap commands
     directory, e.g.: `.projects/foo-bar`
 
 NOTE: the `.projects` directory can be anywhere on the same server, but
-defaults to the current path, see [Usage](#Usage) section.
+defaults to the current path, see [Usage](#usage) section.
 
 
 ## Usage
@@ -21,6 +21,53 @@ By default capistrano recipes must be located in `.projects` directory, but you
 can change that with `CAP_PROJECTS_PATH` environment variable, e.g.:
 
     CAP_PROJECTS_PATH="/home/my/.projects" bundle exec ruby app.rb
+
+
+## API
+
+* [List projects](#list-projects)
+* [Execute cap command](#execute-cap-command)
+
+### List projects
+
+    GET /projects
+
+#### Response
+
+    {
+        "projects": [
+            {
+                "name": "a"
+            },
+            {
+                "name": "cap-foobar"
+            },
+            {
+                "name": "b"
+            }
+        ]
+    }
+
+### Execute cap command
+
+    POST /projects/:name/cap
+
+#### Input
+
+* `name`, required string - The name of project/directory where specific recipes persists;
+* `args`, required array - The command-line parameters to pass to `cap` command.
+
+Example:
+
+    {
+        args:["deploy:check"]
+    }
+
+#### Response
+
+    {
+        "ok"
+    }
 
 
 ## Contributing
