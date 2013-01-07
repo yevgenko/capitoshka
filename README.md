@@ -60,7 +60,7 @@ can change that with `CAP_PROJECTS_PATH` environment variable, e.g.:
 Example:
 
     {
-        args:["deploy:check"]
+        "args":["deploy:check"]
     }
 
 #### Response
