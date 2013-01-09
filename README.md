@@ -5,10 +5,22 @@ Simple web API in front of capistrano that translates requests into cap commands
 
 ## Installation
 
-1. Clone repository: `git clone git://github.com/yevgenko/capitoshka.git`
-2. Get dependencies: `bundle install`
-3. Copy capistrano recipes or entire projects into subfolder under `.projects`
-    directory, e.g.: `.projects/foo-bar`
+Clone repository:
+
+    git clone git://github.com/yevgenko/capitoshka.git
+
+Grab dependencies:
+
+    bundle install
+
+Copy capistrano recipes or entire projects as subfolder under `.projects`
+directory, e.g.: `.projects/foo-bar` where foo-bar is a particular project.
+
+Alternatively you can create new recipes as usually with capistrano:
+
+    mkdir -p .projects/new-foo-bar
+    cd .projects/new-foo-bar
+    capify .
 
 NOTE: the `.projects` directory can be anywhere on the same server, but
 defaults to the current path, see [Usage](#usage) section.
